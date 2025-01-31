@@ -3,8 +3,15 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PumpController;
 use App\Http\Controllers\RouteController;
+use App\Models\Pump;
 use Illuminate\Support\Facades\Route;
+
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+
 
 Route::get('/', [RouteController::class, 'landing']);
 Route::get('/shop', [RouteController::class, 'shop']);
@@ -32,8 +39,6 @@ Route::get('/contacts', function () {
 });
 
 Route::post('/contact', [ContactController::class, 'store']);
-
-
 
 
 Route::post('/newsletter', [NewsletterController::class, 'store']);

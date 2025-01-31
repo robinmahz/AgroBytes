@@ -10,10 +10,6 @@
                 'route' => '/about',
             ],
             [
-                'name' => 'shop',
-                'route' => '/shop',
-            ],
-            [
                 'name' => 'contacts',
                 'route' => '/contacts',
             ],
@@ -33,16 +29,16 @@
             <div>
                 <a href="/"><img src="{{ asset('images/cosmoshacklogo.png') }}" class="h-24"
                         alt=" AgriBytes logo"></a>
-                <p class="mt-4 text-sm">
-                    AgriBytes is a smart crop recommendation app that uses parameters like temperature, moisture, NPK
+                <p class="mt-4 text-sm text-white">
+                    AgroBytes is a smart crop recommendation app that uses parameters like temperature, moisture, NPK
                     (Nitrogen, Phosphorus, Potassium) levels, pH, and other soil metrics to suggest the best crops for
                     optimal yield. It helps us make data-driven decisions for sustainable agriculture.
                 </p>
             </div>
 
             <!-- Useful Links Section -->
-            <div>
-                <h5 class="text-lg font-semibold text-gray-800">Useful Links</h5>
+            <div class="text-white">
+                <h5 class="text-lg font-semibold ">Useful Links</h5>
                 <ul class="mt-4 space-y-2">
                     @foreach ($nav as $item)
                         <li><a href="{{ $item['route'] }}" class="capitalize">{{ $item['name'] }}</a></li>
@@ -51,8 +47,8 @@
             </div>
 
             <!-- Support Section -->
-            <div>
-                <h5 class="text-lg font-semibold text-gray-800">contact us</h5>
+            <div class="text-white">
+                <h5 class="text-lg font-semibold">contact us</h5>
                 <ul class="mt-4 space-y-2">
                     <li><a href="/about" class=" hover:text-gray-800">FAQ</a></li>
                     <li><a href="/contact" class=" hover:text-gray-800">Contact Support</a></li>
@@ -63,7 +59,7 @@
 
             <!-- Subscription Section -->
             <div>
-                <h5 class="text-lg font-semibold text-gray-800">Subscribe</h5>
+                <h5 class="text-lg font-semibold text-white">Subscribe</h5>
                 <form action="/newsletter" method="POST" class="mt-4">
                     @csrf
                     <div class="flex">
