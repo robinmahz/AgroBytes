@@ -8,19 +8,19 @@
                 <!-- Soil Temperature -->
                 <div class="p-8 transition-all transform rounded-lg shadow-md bg-gradient-to-br from-blue-50 to-blue-100 hover:scale-105">
                     <span class="text-6xl">🌡️</span>
-                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">Soil Temperature</h3>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-800"> Temperature</h3>
                     <p class="mt-4 text-3xl font-bold text-blue-600" id="soil-temp">-- °C</p>
                 </div>
                 <!-- Soil Humidity -->
                 <div class="p-8 transition-all transform rounded-lg shadow-md bg-gradient-to-br from-green-50 to-green-100 hover:scale-105">
                     <span class="text-6xl">💧</span>
-                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">Soil Humidity</h3>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">Humidity</h3>
                     <p class="mt-4 text-3xl font-bold text-green-600" id="soil-humidity">-- %</p>
                 </div>
                 <!-- Water Percentage -->
                 <div class="p-8 transition-all transform rounded-lg shadow-md bg-gradient-to-br from-purple-50 to-purple-100 hover:scale-105">
                     <span class="text-6xl">🚰</span>
-                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">Water Percentage</h3>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">soil moisture</h3>
                     <p class="mt-4 text-3xl font-bold text-purple-600" id="water-percentage">-- %</p>
                 </div>
             </div>
