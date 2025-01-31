@@ -1,7 +1,8 @@
 <nav class="fixed top-0 z-50 w-full border-b border-gray-200 bg-primary start-0 ">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="{{ asset('images/AgrimanduLogo.png') }}" class="h-8" alt="AgriMandu Logo">
+            <img src="{{ asset('images/cosmoshacklogo.png') }}" class="w-16 h-16" alt="AgriMandu Logo">
+
         </a>
         <div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
             <form class="items-center justify-end flex-1 hidden lg:flex" method="POST" action="/search">

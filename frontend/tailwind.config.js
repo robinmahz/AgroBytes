@@ -15,9 +15,9 @@ export default {
                 sans: ["Dosis", "sans-serif"],
             },
             colors: {
-                primary: "#6C983E",
-                secondary: "#EBF3E7",
-                accent: "#E5FC98",
+                primary: "#0875a3",
+                secondary:"#098bba",
+                accent: "#ffff",
                 "dark-accent": "#1D4C43",
             },
         },

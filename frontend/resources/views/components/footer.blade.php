@@ -1,4 +1,4 @@
-<footer class="bg-[#D4E6C2] py-10">
+<footer class="bg-[#0875a3]  bg-opacity-3 py-10">
     @php
         $nav = [
             [
@@ -27,14 +27,14 @@
             ],
         ];
     @endphp
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="container px-4 mx-auto">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
             <!-- Social Media Section -->
             <div>
-                <a href="/"><img src="{{ asset('images/agrimandu-logo.png') }}" class="h-24"
-                        alt=" AgriMandu logo"></a>
-                <p class="text-sm  mt-4">
-                    Agrimandu is a smart crop recommendation app that uses parameters like temperature, moisture, NPK
+                <a href="/"><img src="{{ asset('images/cosmoshacklogo.png') }}" class="h-24"
+                        alt=" AgriBytes logo"></a>
+                <p class="mt-4 text-sm">
+                    AgriBytes is a smart crop recommendation app that uses parameters like temperature, moisture, NPK
                     (Nitrogen, Phosphorus, Potassium) levels, pH, and other soil metrics to suggest the best crops for
                     optimal yield. It helps us make data-driven decisions for sustainable agriculture.
                 </p>
@@ -68,10 +68,10 @@
                     @csrf
                     <div class="flex">
                         <input type="email" name="email"
-                            class="w-full px-4 py-2  rounded-l-md ring-0 border-0 focus:ring-none focus:outline-none"
+                            class="w-full px-4 py-2 border-0 rounded-l-md ring-0 focus:ring-none focus:outline-none"
                             placeholder="Enter Your Email" required />
                         <button type="submit"
-                            class="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-primary-dark focus:outline-none">
+                            class="px-4 py-2 text-white bg-primary rounded-r-md hover:bg-primary-dark focus:outline-none">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"

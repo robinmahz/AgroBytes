@@ -1,82 +1,77 @@
 @extends('layouts.frontend.app')
 @section('content')
-    <main class="container px-4 py-8 ">
-        <!-- Hero Section with Image and Description -->
-        <section class="py-12">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-6 md:mb-0">
-                    <img src="{{ asset('images/home/farmer.jpg') }}" alt="Agrimandu Farm"
-                        class="rounded-lg shadow-md w-full h-auto">
+    <main class="container px-4 py-8 mx-auto">
+        <!-- Sensor Data Display Section -->
+        <section class="p-8 mb-12 bg-white rounded-lg shadow-lg">
+            <h2 class="mb-8 text-4xl font-bold text-center text-primary">Real-Time Sensor Data</h2>
+            <div class="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
+                <!-- Soil Temperature -->
+                <div class="p-8 transition-all transform rounded-lg shadow-md bg-gradient-to-br from-blue-50 to-blue-100 hover:scale-105">
+                    <span class="text-6xl">🌡️</span>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">Soil Temperature</h3>
+                    <p class="mt-4 text-3xl font-bold text-blue-600" id="soil-temp">-- °C</p>
                 </div>
-                <div class="md:w-1/2 md:pl-8">
-                    <h1 class="text-4xl font-bold text-primary mb-4">Welcome to Agrimandu</h1>
-                    <p class="text-xl text-gray-700 mb-6">
-                        Agrimandu is Nepal's leading platform for premium agricultural products, connecting local farmers
-                        directly with consumers. We ensure fresh, organic produce at fair prices while leveraging sales data
-                        to recommend crops that help farmers maximize their profits.
-                    </p>
-                    <a href="/shop"
-                        class="bg-primary text-white font-bold py-2 px-6 rounded-full hover:bg-green-600 transition duration-300">
-                        Explore Our Products
-                    </a>
+                <!-- Soil Humidity -->
+                <div class="p-8 transition-all transform rounded-lg shadow-md bg-gradient-to-br from-green-50 to-green-100 hover:scale-105">
+                    <span class="text-6xl">💧</span>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">Soil Humidity</h3>
+                    <p class="mt-4 text-3xl font-bold text-green-600" id="soil-humidity">-- %</p>
                 </div>
+                <!-- Water Percentage -->
+                <div class="p-8 transition-all transform rounded-lg shadow-md bg-gradient-to-br from-purple-50 to-purple-100 hover:scale-105">
+                    <span class="text-6xl">🚰</span>
+                    <h3 class="mt-6 text-2xl font-semibold text-gray-800">Water Percentage</h3>
+                    <p class="mt-4 text-3xl font-bold text-purple-600" id="water-percentage">-- %</p>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <button class="px-8 py-3 font-bold text-white transition-all transform rounded-full bg-gradient-to-r from-primary to-green-500 hover:from-green-600 hover:to-primary hover:scale-105" onclick="fetchSensorData()">
+                    Refresh Data
+                </button>
             </div>
         </section>
 
-        <!-- Featured Products Section -->
-        <section id="products" class="mb-12">
-            <h2 class="text-3xl font-semibold text-center mb-8">Our Featured Products</h2>
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-evenly mx-auto p-4">
-                @include('components.shop-card')
-            </div>
-
-        </section>
-
-        <!-- Why Choose Us Section -->
-        <section class="bg-green-100 rounded-lg p-8 mb-12">
-            <h2 class="text-3xl font-semibold text-center mb-8">Why Choose Agrimandu?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <svg class="w-12 h-12 mx-auto mb-4 text-green-600" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <h3 class="text-xl font-semibold mb-2">Quality Assured</h3>
-                    <p class="text-gray-700">We guarantee the highest quality organic products.</p>
-                </div>
-                <div class="text-center">
-                    <svg class="w-12 h-12 mx-auto mb-4 text-green-600" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
-                        </path>
-                    </svg>
-                    <h3 class="text-xl font-semibold mb-2">Fair Prices</h3>
-                    <p class="text-gray-700">Supporting farmers while offering competitive prices.</p>
-                </div>
-                <div class="text-center">
-                    <svg class="w-12 h-12 mx-auto mb-4 text-green-600" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                        </path>
-                    </svg>
-                    <h3 class="text-xl font-semibold mb-2">Eco-Friendly</h3>
-                    <p class="text-gray-700">Promoting sustainable farming practices in Nepal.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action Section -->
+        <!-- Activity Log Section -->
         <section class="text-center">
-            <h2 class="text-3xl font-semibold mb-6">Ready to Experience Agrimandu?</h2>
-            <p class="text-xl text-gray-700 mb-8">Join us in supporting local farmers and enjoying the best of Nepalese
-                agriculture.</p>
-            <a href="/shop"
-                class="bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600 transition duration-300">
-                Shop Now
-            </a>
+            <h2 class="mb-8 text-4xl font-bold text-primary">Irrigation System Activities</h2>
+            <button class="px-8 py-3 font-bold text-white transition-all transform rounded-full bg-gradient-to-r from-primary to-green-500 hover:from-green-600 hover:to-primary hover:scale-105" onclick="toggleActivityLog()">
+                View Irrigation Activities
+            </button>
+            <div id="activity-log" class="hidden p-8 mt-8 bg-white rounded-lg shadow-lg">
+                <ul id="activity-list" class="space-y-4 text-lg text-gray-700">
+                    <li class="p-4 rounded-lg shadow-sm bg-gray-50">Loading...</li>
+                </ul>
+            </div>
         </section>
     </main>
+
+    <script>
+        function fetchSensorData() {
+            // Simulated data fetching
+            document.getElementById('soil-temp').innerText = Math.floor(Math.random() * 10 + 20) + ' °C';
+            document.getElementById('soil-humidity').innerText = Math.floor(Math.random() * 50 + 30) + ' %';
+            document.getElementById('water-percentage').innerText = Math.floor(Math.random() * 50 + 50) + ' %';
+        }
+
+        function toggleActivityLog() {
+            const log = document.getElementById('activity-log');
+            log.classList.toggle('hidden');
+            loadActivityLog();
+        }
+
+        function loadActivityLog() {
+            const activities = [
+                "Watering started at 10:00 AM",
+                "System paused at 11:30 AM",
+                "Watering resumed at 12:15 PM",
+                "Watering stopped at 1:00 PM"
+            ];
+            const list = document.getElementById('activity-list');
+            list.innerHTML = activities.map(activity => `<li class='p-4 rounded-lg shadow-sm bg-gray-50'>${activity}</li>`).join('');
+        }
+
+        // Auto-fetch data every 30 seconds
+        setInterval(fetchSensorData, 30000);
+        fetchSensorData();
+    </script>
 @endsection
